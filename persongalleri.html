@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <section></section>
+
+    <template>
+      <article>
+        <h2 class="navn"></h2>
+        <p class="email"></p>
+        <img src="" alt="" />
+      </article>
+    </template>
+    <script>
+      const container = document.querySelector("section");
+      const temp = document.querySelector("template");
+
+      const url = "https://asgers-f5b4.restdb.io/rest/medlemmer";
+
+      const options = {
+        headers: {
+          "x-apikey": "61fcf7fa3f215f310a37be75",
+        },
+      };
+
+      async function hentData() {
+        const respons = await fetch(url, options);
+        const json = await respons.json();
+        vis(json);
+      }
+
+      function vis(json) {
+        console.log("json", json);
+        json.forEach((medlem) => {
+          let klon = temp.cloneNode(true).content;
+          klon.querySelector(".navn").textContent =
+            medlem.fornavn + medlem.efternavn;
+          klon.querySelector("p").textContent = medlem.email;
+          klon.querySelector("img").src = "faces/" + medlem.profilbillede;
+          container.appendChild(klon);
+        });
+        console.log(json);
+      }
+
+      hentData();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        gap: 0;
+      }
+
+      header,
+      footer,
+      article {
+        border: 1px solid #ccc;
+      }
+
+      header,
+      footer,
+      h2 {
+        text-align: center;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      section {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Titel</h1>
+    </header>
+    <main>
+      <h2>Undertitel</h2>
+      <section>
+        <article>
+          <img src="https://placeimg.com/640/480/any" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam,
+            minus nulla cumque alias consectetur quaerat dolorum quidem labore
+            neque eius ad rem corporis aliquid dicta excepturi laudantium maxime
+            necessitatibus consequuntur.
+          </p>
+        </article>
+        <article>
+          <img src="https://placeimg.com/640/480/any" />
+          <h3>Article 2</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam,
+            minus nulla cumque alias consectetur quaerat dolorum quidem labore
+            neque eius ad rem corporis aliquid dicta excepturi laudantium maxime
+            necessitatibus consequuntur.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>This is the footer</footer>
+    <script>
+      const overskrift = document.querySelector("h1");
+      console.log(overskrift.textContent);
+    </script>
+  </body>
+</html>
